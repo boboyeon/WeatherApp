@@ -31,7 +31,10 @@ function App() {
   };
 
   useEffect(() => {
-    getCurrentLocation();
+      // Your useEffect code here
+  // Example: getCurrentLocation();
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // array 값이 비어있어 componentDidMount()처럼 작동, render 후 바로 작동
 
   return (
