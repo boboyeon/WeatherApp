@@ -13,6 +13,8 @@ import WeatherButton from "./component/WeatherButton";
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const [city, setCity] = useState("");
+  const cities = ["paris", "new york", "tokyo", "seoul"];
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
@@ -31,17 +33,20 @@ function App() {
   };
 
   useEffect(() => {
-      // Your useEffect code here
-  // Example: getCurrentLocation();
-  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    getCurrentLocation();
   }, []); // array 값이 비어있어 componentDidMount()처럼 작동, render 후 바로 작동
+
+
+  useEffect(()=>{
+    console.log("city?",city)
+  },[city])
+
 
   return (
     <div>
       <div className="container">
-        <WeatherBox weather={weather}/>
-        <WeatherButton />
+        <WeatherBox weather={weather} />
+        <WeatherButton cities={cities} setCity={setCity}/>
       </div>
     </div>
   );

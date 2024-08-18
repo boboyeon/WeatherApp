@@ -1,14 +1,16 @@
-import React from 'react'
-import { Button } from 'react-bootstrap';
+import React from "react";
+import { Button } from "react-bootstrap";
 
-const WeatherButton = () => {
+const WeatherButton = ({ cities,setCity }) => {
+  console.log("cities?", cities);
   return (
     <div>
-      <Button variant="primary">Current Location</Button>{' '}
-      <Button variant="primary">paris</Button>{' '}
-      <Button variant="primary">new york</Button>{' '}
+      <Button variant="primary">Current Location</Button>{" "}
+      {cities.map((item, index) => (
+        <Button variant="primary" key={index} onClick={()=>setCity(item)}>{item}</Button>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default WeatherButton
+export default WeatherButton;
