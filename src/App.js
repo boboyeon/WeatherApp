@@ -12,8 +12,7 @@ import WeatherButton from "./component/WeatherButton";
 // 6. 데이터를 들고 오는 동안 로딩 스피너가 돈다
 
 function App() {
-
-  const [weather,setWeather]=useState(null)
+  const [weather, setWeather] = useState(null);
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
@@ -28,6 +27,7 @@ function App() {
     let response = await fetch(url); // 비동기
     let data = await response.json();
     console.log("data", data);
+    setWeather(data);
   };
 
   useEffect(() => {
