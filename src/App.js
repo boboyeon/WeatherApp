@@ -37,6 +37,7 @@ function App() {
   };
 
   const getWeatherByCity = async () => {
+    if (!city) return;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=310beaa8565789898bb0a57ddcd5a5d4&units=metric`;
     setLoading(true);
     let response = await fetch(url);
@@ -46,9 +47,9 @@ function App() {
     setLoading(false);
   };
 
-  const handleCityChange = () => {
+  const handleChangeCity = (city) => {
     if (city === "current") {
-      setCity(null);
+      setCity("");
     } else {
       setCity(city);
     }
@@ -79,7 +80,7 @@ function App() {
           <WeatherBox weather={weather} />
           <WeatherButton
             cities={cities}
-            handleCityChange={handleCityChange}
+            handleChangeCity={handleChangeCity}
             setCity={setCity}
           />
         </div>
