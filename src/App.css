@@ -19,3 +19,7 @@ body{
   border-radius: 20px;
   background-color: #fff8;
 }
+
+.menu-container button {
+  margin: 20px 5px;
+}
