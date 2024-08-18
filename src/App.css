@@ -1,8 +1,10 @@
-body{
+body {
   background: url(https://www.holiday-weather.com/images/mobile/header-bg.webp);
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -11,15 +13,39 @@ body{
   align-items: center;
   height: 100vh;
   flex-direction: column;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .weather_box {
-  border : 3px solid #fff;
+  border: 3px solid #fff;
   padding: 50px;
   border-radius: 20px;
-  background-color: #fff8;
+  background-color: #fff9;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
 }
 
 .menu-container button {
-  margin: 20px 5px;
+  margin: 5px 0;
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .menu-container button {
+    flex: 1 1 auto;
+    margin: 20px 5px;
+  }
 }

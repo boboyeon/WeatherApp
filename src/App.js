@@ -7,11 +7,11 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 function App() {
   const [weather, setWeather] = useState(null);
-  const [city, setCity] = useState(""); // 초기값을 빈 문자열로 설정
+  const [city, setCity] = useState(""); 
   const [loading, setLoading] = useState(false);
-  const [apiError, setAPIError] = useState(""); // 에러 메시지 상태 추가
+  const [apiError, setAPIError] = useState("");
   const cities = ["paris", "new york", "tokyo", "seoul"];
-  const API_KEY = "310beaa8565789898bb0a57ddcd5a5d4"; // API 키 상수 추가
+  const API_KEY = "310beaa8565789898bb0a57ddcd5a5d4";
   
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -23,7 +23,7 @@ function App() {
   const getWeatherByCurrentLocation = async (lat, lon) => {
     try {
       setLoading(true);
-      setAPIError(""); // 에러 상태 초기화
+      setAPIError("");
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
       const response = await fetch(url);
       const data = await response.json();
@@ -43,7 +43,7 @@ function App() {
     try {
       if (!city) return;
       setLoading(true);
-      setAPIError(""); // 에러 상태 초기화
+      setAPIError("");
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
       const response = await fetch(url);
       const data = await response.json();
