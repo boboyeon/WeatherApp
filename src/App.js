@@ -23,7 +23,7 @@ function App() {
   };
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=310beaa8565789898bb0a57ddcd5a5d4`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=310beaa8565789898bb0a57ddcd5a5d4&units=metric`;
     let response = await fetch(url); // 비동기
     let data = await response.json();
     console.log("data", data);
@@ -37,7 +37,7 @@ function App() {
   return (
     <div>
       <div className="container">
-        <WeatherBox />
+        <WeatherBox weather={weather}/>
         <WeatherButton />
       </div>
     </div>
